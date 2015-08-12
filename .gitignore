@@ -1,3 +1,5 @@
 .idea
 presidents.json
 .iml
+.pyc
+__pycache__
