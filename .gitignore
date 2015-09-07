@@ -1,5 +1,7 @@
 .idea
-presidents.json
+data/out/presidents.json
+data
 .iml
 .pyc
+*.pickle
 __pycache__
