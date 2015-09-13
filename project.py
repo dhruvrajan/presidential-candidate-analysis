@@ -6,10 +6,14 @@ import json
 from presidential_stream import PresidentialListener
 import time
 
-consumer_key = "KBGF7ki0I2cRuel9sHcawaox3"
-consumer_secret = "3pAk7xc0NE3336vyLtu8MNIRgjohfFxW5uJFvBzf1Vy8xuqgkc"
-access_token = "3312575270-0zqo96Ws5bTdWaBnM5n27ZQntWxMU8wutAU9TMA"
-access_secret = "WJq1muGi7boFzPx5d8MdhN8VQXHsI8HraEm4aJxla3193"
+with open("auth/consumer_key") as f:
+    consumer_key = f.read()
+with open("auth/consumer_secret") as f:
+    consumer_secret = f.read()
+with open("auth/access_token") as f:
+    access_token = f.read()
+with open("auth/access_token_secret") as f:
+    access_secret = f.read()
 
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
@@ -32,4 +36,4 @@ tweepy.models.User.first_parse = tweepy.models.User.parse
 tweepy.models.User.parse = parse
 
 twitter_stream = tweepy.Stream(auth, PresidentialListener())
-twitter_stream.filter(track=['#Trump2016'])
+twitter_stream.filter(track=["Israel", "Carson", "#Trump2016"])
